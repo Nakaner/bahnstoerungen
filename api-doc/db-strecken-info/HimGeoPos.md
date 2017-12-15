@@ -5,7 +5,43 @@
 `req` looks like this
 
 ```json
-{"prio":100,"maxNum":5000,"getPolyLine":true,"rect":{"llCrd":{"x":12611960,"y":51444636},"urCrd":{"x":14934540,"y":51867426}},"dateB":"20170512","timeB":"180000","dateE":"20170513","timeE":"000000","onlyHimId":true,"himFltrL":[{"type":"HIMCAT","mode":"INC","value":"0"},{"type":"HIMCAT","mode":"INC","value":"1"},{"type":"PROD","mode":"INC","value":3}]}
+{
+  "dateB": "20170512",
+  "dateE": "20170513",
+  "getPolyLine": true,
+  "himFltrL": [
+    {
+      "mode": "INC",
+      "type": "HIMCAT",
+      "value": "0"
+    },
+    {
+      "mode": "INC",
+      "type": "HIMCAT",
+      "value": "1"
+    },
+    {
+      "mode": "INC",
+      "type": "PROD",
+      "value": 3
+    }
+  ],
+  "maxNum": 5000,
+  "onlyHimId": true,
+  "prio": 100,
+  "rect": {
+    "llCrd": {
+      "x": 12611960,
+      "y": 51444636
+    },
+    "urCrd": {
+      "x": 14934540,
+      "y": 51867426
+    }
+  },
+  "timeB": "180000",
+  "timeE": "000000"
+}
 ```
 
 ### Parameters Which Are Known to Change Something
@@ -25,13 +61,101 @@
 All unplanned disruptions in Germany:
 
 ```json
-{"prio":100,"maxNum":5000,"getPolyLine":true,"rect":{"llCrd":{"x":12611960,"y":51444636},"urCrd":{"x":14934540,"y":51867426}},"dateB":"20170512","timeB":"180000","dateE":"20170513","timeE":"000000","onlyHimId":false,"himFltrL":[{"type":"HIMCAT","mode":"INC","value":"0"},{"type":"HIMCAT","mode":"INC","value":"1"},{"type":"PROD","mode":"INC","value":3},{"type":"PROD","mode":"INC","value":24},{"type":"PROD","mode":"INC","value":1920}]}
+{
+  "dateB": "20170512",
+  "dateE": "20170513",
+  "getPolyLine": true,
+  "himFltrL": [
+    {
+      "mode": "INC",
+      "type": "HIMCAT",
+      "value": "0"
+    },
+    {
+      "mode": "INC",
+      "type": "HIMCAT",
+      "value": "1"
+    },
+    {
+      "mode": "INC",
+      "type": "PROD",
+      "value": 3
+    },
+    {
+      "mode": "INC",
+      "type": "PROD",
+      "value": 24
+    },
+    {
+      "mode": "INC",
+      "type": "PROD",
+      "value": 1920
+    }
+  ],
+  "maxNum": 5000,
+  "onlyHimId": false,
+  "prio": 100,
+  "rect": {
+    "llCrd": {
+      "x": 12611960,
+      "y": 51444636
+    },
+    "urCrd": {
+      "x": 14934540,
+      "y": 51867426
+    }
+  },
+  "timeB": "180000",
+  "timeE": "000000"
+}
+
 ```
 
 If you only want to get messages of the highest priority (message of the day), use following parameters:
 
 ```json
-{"ver":"1.15","lang":"deu","auth":{"type":"AID","aid":"hf7mcf9bv3nv8g5f"},"client":{"id":"DBZUGRADARNETZ","type":"WEB","name":"webapp","v":"0.1.0"},"formatted":false,"svcReqL":[{"meth":"HimGeoPos","req":{"prio":100,"maxNum":5000,"onlyHimId":false,"himFltrL":[{"type":"HIMCAT","mode":"INC","value":"0"},{"type":"PROD","mode":"INC","value":4}]},"cfg":{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}}],"ext":"DBNETZZUGRADAR.2"}
+{
+  "auth": {
+    "aid": "hf7mcf9bv3nv8g5f",
+    "type": "AID"
+  },
+  "client": {
+    "id": "DBZUGRADARNETZ",
+    "name": "webapp",
+    "type": "WEB",
+    "v": "0.1.0"
+  },
+  "ext": "DBNETZZUGRADAR.2",
+  "formatted": false,
+  "lang": "deu",
+  "svcReqL": [
+    {
+      "cfg": {
+        "cfgGrpL": [],
+        "cfgHash": "i74dckao7PmBwS0rbk0p"
+      },
+      "meth": "HimGeoPos",
+      "req": {
+        "himFltrL": [
+          {
+            "mode": "INC",
+            "type": "HIMCAT",
+            "value": "0"
+          },
+          {
+            "mode": "INC",
+            "type": "PROD",
+            "value": 4
+          }
+        ],
+        "maxNum": 5000,
+        "onlyHimId": false,
+        "prio": 100
+      }
+    }
+  ],
+  "ver": "1.15"
+}
 ```
 
 

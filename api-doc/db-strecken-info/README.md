@@ -26,14 +26,80 @@ If not otherwise noted, dates are encoded as strings using following pattern: `Y
 
 mgate.exe is the API endpoint. All queries are done as HTTP POST requests, the payload looks like this:
 
-```
-{"ver":"1.15","lang":"deu","auth":{"type":"AID","aid":"hf7mcf9bv3nv8g5f"},"client":{"id":"DBZUGRADARNETZ","type":"WEB","name":"webapp","v":"0.1.0"},"formatted":false,"svcReqL":[{"meth":"LocGeoPos","req":{"rect":{"llCrd":{"x":13540992.736816406,"y":51613752.957501},"urCrd":{"x":14005508.422851562,"y":51698310.32893037}}},"cfg":{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}}],"ext":"DBNETZZUGRADAR.2"}
+```json
+{
+  "auth": {
+    "aid": "hf7mcf9bv3nv8g5f",
+    "type": "AID"
+  },
+  "client": {
+    "id": "DBZUGRADARNETZ",
+    "name": "webapp",
+    "type": "WEB",
+    "v": "0.1.0"
+  },
+  "ext": "DBNETZZUGRADAR.2",
+  "formatted": false,
+  "lang": "deu",
+  "svcReqL": [
+    {
+      "cfg": {
+        "cfgGrpL": [],
+        "cfgHash": "i74dckao7PmBwS0rbk0p"
+      },
+      "meth": "LocGeoPos",
+      "req": {
+        "rect": {
+          "llCrd": {
+            "x": 13540992.736816406,
+            "y": 51613752.957501
+          },
+          "urCrd": {
+            "x": 14005508.422851562,
+            "y": 51698310.32893037
+          }
+        }
+      }
+    }
+  ],
+  "ver": "1.15"
+}
 ```
 
 or this:
 
-```
-{"ver":"1.15","lang":"deu","auth":{"type":"AID","aid":"hf7mcf9bv3nv8g5f"},"client":{"id":"DBZUGRADARNETZ","type":"WEB","name":"webapp","v":"0.1.0"},"formatted":false,"svcReqL":[{"meth":"HimDetails","req":{"input":"","getTrains":false,"date":"20170512","time":"180000"},"cfg":{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}}],"ext":"DBNETZZUGRADAR.2"}
+```json
+{
+  "auth": {
+    "aid": "hf7mcf9bv3nv8g5f",
+    "type": "AID"
+  },
+  "client": {
+    "id": "DBZUGRADARNETZ",
+    "name": "webapp",
+    "type": "WEB",
+    "v": "0.1.0"
+  },
+  "ext": "DBNETZZUGRADAR.2",
+  "formatted": false,
+  "lang": "deu",
+  "svcReqL": [
+    {
+      "cfg": {
+        "cfgGrpL": [],
+        "cfgHash": "i74dckao7PmBwS0rbk0p"
+      },
+      "meth": "HimDetails",
+      "req": {
+        "date": "20170512",
+        "getTrains": false,
+        "input": "",
+        "time": "180000"
+      }
+    }
+  ],
+  "ver": "1.15"
+}
 ```
 
 The official web application always sets `ver`, `lang`, `auth`, `client`, `formatted` and `ext` to the same values. `svcReqL` is the interesting field.
@@ -70,7 +136,7 @@ The meaning of the parameters:
 
 svcReqL which contains an object with following attributes:
 
-* `meth`: name of the API call. Following API calls are available: [`HimGeoPos`](HimGeoPos.html), [`HimDetails`](HimDetails.html) and [`LocGeoPos`](LocGeoPos.html). See the following sections for the responses of these calls.
+* `meth`: name of the API call. Following API calls are available: [`HimGeoPos`](HimGeoPos.md), [`HimDetails`](HimDetails.md) and [`LocGeoPos`](LocGeoPos.md). See the following sections for the responses of these calls.
 * `req`: object containing some query parameters dependend on the API call being used. See the API calls below for the parameters.
 * `cfg`: object which always seems to be `{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}`
 
@@ -78,9 +144,9 @@ Zum Inhalt von `req` siehe unten.
 
 ## Available API Calls
 
-* [LocGeoPos](LocGeoPos.html)
-* [HimDetails](HimDetails.html)
-* [HimGeoPos](HimGeoPos.html) returns a list of all planned and unplanned disruptions. The events have an ID beginning with `HIM_FREETEXT` which is used for the `HimDetails` call to get the location and the event message. This call also returns operating sites with a reduced number of attributes
+* [LocGeoPos](LocGeoPos.md)
+* [HimDetails](HimDetails.md)
+* [HimGeoPos](HimGeoPos.md) returns a list of all planned and unplanned disruptions. The events have an ID beginning with `HIM_FREETEXT` which is used for the `HimDetails` call to get the location and the event message. This call also returns operating sites with a reduced number of attributes
 
 ## Respsonses
 

@@ -5,7 +5,18 @@
 This query returns the operating sites ("Betriebsstellen") located in the current map view. `req` has following value
 
 ```json
-{"rect":{"llCrd":{"x":13540992.736816406,"y":51613752.957501},"urCrd":{"x":14005508.422851562,"y":51698310.32893037}}}
+{
+  "rect": {
+    "llCrd": {
+      "x": 13540992.736816406,
+      "y": 51613752.957501
+    },
+    "urCrd": {
+      "x": 14005508.422851562,
+      "y": 51698310.32893037
+    }
+  }
+}
 ```
 
 `llCrd` is the lower left corner of the bounding box, `urCrd` is the upper right corner of the bounding box. Coordinates are in WGS84 and follow the coordinate specification explained above.
@@ -13,7 +24,18 @@ This query returns the operating sites ("Betriebsstellen") located in the curren
 `req` hat als Wert ein Objekt, mit einem einzigen Attribut – `rect` mit dem Wert
 
 ```json
-{"rect":{"llCrd":{"x":13540992.736816406,"y":51613752.957501},"urCrd":{"x":14005508.422851562,"y":51698310.32893037}}}
+{
+  "rect": {
+    "llCrd": {
+      "x": 13540992.736816406,
+      "y": 51613752.957501
+    },
+    "urCrd": {
+      "x": 14005508.422851562,
+      "y": 51698310.32893037
+    }
+  }
+}
 ```
 
 ## Response
