@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inoffizielle Störungskarte DB Netz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="leaflet.css" />
+    <script type="text/javascript" src="moment.js"></script>
+    <script type="text/javascript" src="moment-timezone-with-data-2012-2022.js"></script>
+    <script src="leaflet.js"></script>
+    <style>
+        body {
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/hamburger.svg" width="21" height="21" id="open-menu-icon" >
+        <div id="title">
+            <a href="#">Inoffizielle Störungskarte DB Netz</a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li>
+                    <a href="about.html">Über</a>
+                </li>
+                <li>
+                    <a href="impressum.html">Impressum</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<div id="mapid">
+    <img id="loading" src="images/loading.svg" width="48" height="48">
+    <div id="motd_overlay">
+        <img src="images/info.svg" id="motd_image" class="float_left" width="56" height="56">
+        <img src="images/close.svg" id="close_icon" class="float_right" width="36" height="36">
+        <span id="motd_text"></span>
+    </div>
+</div>
+<script type="text/javascript" src="hamburger.js"></script>
+<script type="text/javascript" src="mapdisplay.js"></script>
+</body>
+</html>

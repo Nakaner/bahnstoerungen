@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 25 41"
+   version="1.1"
+   id="svg2"
+   height="43.733334"
+   width="26.666666"
+   sodipodi:docname="marker-red2.svg"
+   inkscape:version="0.92.1 r">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="708"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="15.263158"
+     inkscape:cx="15.914709"
+     inkscape:cy="29.867371"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata74">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4322">
+      <stop
+         offset="0"
+         id="stop4324"
+         style="stop-color:#972e3f;stop-opacity:1" />
+      <stop
+         offset="1"
+         id="stop4326"
+         style="stop-color:#b7385c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4316">
+      <stop
+         style="stop-color:#d14c70;stop-opacity:1"
+         offset="1"
+         stop-color="#4c9cd1"
+         id="stop4320" />
+    </linearGradient>
+    <linearGradient
+       y2="503.72"
+       x2="445.30099"
+       y1="541.28601"
+       x1="445.30099"
+       gradientTransform="matrix(0.99548989,0,0,1.0196413,-430.83744,-513.23817)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4312"
+       xlink:href="#linearGradient4316" />
+    <linearGradient
+       y2="503.72101"
+       x2="351.74799"
+       y1="522.77399"
+       x1="351.74799"
+       gradientTransform="matrix(0.99548989,0,0,1.0196413,-339.67048,-513.23919)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4314"
+       xlink:href="#linearGradient4322" />
+  </defs>
+  <rect
+     y="4.5988975"
+     x="6.3070498"
+     height="14.7848"
+     width="12.56806"
+     id="rect4306"
+     style="fill:#ffffff" />
+  <path
+     d="m 12.543802,0.55804657 c -6.5433555,0 -11.98968071,5.80277853 -11.98968071,12.09906443 0,2.832563 1.55694621,6.431897 2.68184971,8.917782 L 12.5,39.797923 21.720227,21.574893 c 1.124904,-2.485885 2.725652,-5.904742 2.725652,-8.917782 0,-6.2962859 -5.358722,-12.09906443 -11.902077,-12.09906443 z m 0,7.29553343 c 2.572345,0.017333 4.657897,2.163679 4.657897,4.802511 0,2.638832 -2.085552,4.754587 -4.657897,4.770902 -2.5723464,-0.01733 -4.6578976,-2.131051 -4.6578976,-4.770902 0,-2.638832 2.0855512,-4.7851771 4.6578976,-4.802511 z"
+     id="path4308"
+     style="fill:#d14c70;stroke:url(#linearGradient4314);stroke-width:1.10824263;stroke-linecap:round;fill-opacity:1" />
+  <path
+     d="m 12.530861,1.6867895 c -5.9171928,0 -10.8886693,5.3215079 -10.8886693,10.9611445 0,2.405333 1.4364919,5.946548 2.5514407,8.412041 l 0.030861,0.03161 8.2755066,16.28265 8.212791,-16.282652 0.03086,-0.03161 c 1.12988,-2.496083 2.61316,-5.818074 2.61316,-8.412041 0,-5.6467741 -4.90876,-10.9611445 -10.825951,-10.9611445 z m 0,5.0665975 c 3.153711,0.021413 5.754927,2.6520871 5.754927,5.894547 0,3.242459 -2.601216,5.874154 -5.754927,5.894546 -3.1537128,-0.02039 -5.7240677,-2.661263 -5.7240677,-5.894546 0,-3.234302 2.5703549,-5.8741541 5.7240677,-5.894547 z"
+     id="path4310"
+     style="fill:none;stroke:#ffffff;stroke-width:1.10824263;stroke-linecap:round;stroke-opacity:0.122" />
+</svg>

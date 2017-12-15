@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Über die inoffizielle Störungskarte DB Netz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <img src="images/hamburger.svg" id="open-menu-icon" />
+        <div id="title">
+            <a href="index.html">Inoffizielle Störungskarte DB Netz</a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li>
+                    <a href="#">Über</a>
+                </li>
+                <li>
+                    <a href="impressum.html">Impressum</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <article>
+        <h1>Über die inoffizielle Störungskarte</h1>
+        <p>Die inoffizielle Störungskarte ist eine alternative Website, die die Betriebsstörungen im Streckennetz der DB Netz AG anzeigt. Die Karte stellt nur die Störungen dar, die über das Portal <a href="http://db-livemaps.hafas.de/bin/query.exe/dn?tpl=fullscreenmap&L=vs_baustellen">strecken.info</a> der DB Netz AG abrufbar sind.</p>
+	<p>strecken.info bezieht die Störungsdaten von einer <a href="https://de.wikipedia.org/wiki/Programmierschnittstelle">API</a>. Diese API wird auch von dieser inoffiziellen Störungskarte verwendet,welche als Demoanwenung zur inoffiziellen Dokumentation der strecken.info-API gedacht ist.</p>
+        <p>Die inoffizielle Störungskarte unterscheidet sich in folgenden Punkten von der offiziellen Störungskarte:</p>
+        <ul>
+            <li>Sie stellt nur Betriebsstörungen, aber keine Baustellen dar, denn das interessiert die Fahrgäste (Allgemeinheit).</li>
+            <li>Sie ist auch auf mobilen Geräten benutzbar. Das war die Motivation, diese alternative Störungskarte überhaupt zu erstellen.</li>
+            <li>Sie lädt schneller, da sie schlanker ist.</li>
+            <li>Sie verwendet optimierte Parameter bei der Kommunikation mit der API, wodurch die API schneller antwortet und weniger Anfragen an die API gestellt werden müssen.
+        </ul>
+
+        <h2>Open Source</h2>
+        <p>Die inoffizielle Störungskarte ist freie Software, jeder kann sie sich auf seinem Webserver installieren. Der Quellcode unterliegt der <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License Version 3</a> oder neuer und ist auf <a href="https://github.com/Nakaner/bahnstoerungen">Github</a> verfügbar. Die <a href="https://github.com/Nakaner/bahnstoerungen/api-doc/db-strecken-info/">API-Dokumentation</a> ist unter den Bedingungen der Lizenz <a href="https://creativecommons.org/licenses/by/2.0/">Creative Commons Namensnennung 2.0</a> oder neuer verfügbar.</p>
+
+        <h2>Legende</h2>
+        <table>
+            <tr>
+                <td><img src="images/marker-red.svg"></td>
+                <td>Störung</td>
+            </tr>
+            <tr>
+                <td><img src="images/marker-grey.svg"></td>
+                <td>behobene Störung</td>
+            </tr>
+            <tr>
+                <td><img src="images/region-red.svg"></td>
+                <td>Regionalmeldung (z.B. Ausfall Zugfunk, Trojanerinfektion)</td>
+            </tr>
+            <tr>
+                <td><img src="images/region-grey.svg"></td>
+                <td>dto., aber vorüber</td>
+            </tr>
+        </table>
+    </article>
+</body>
+<script type="text/javascript" src="hamburger.js"></script>
+</html>
