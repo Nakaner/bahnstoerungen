@@ -49,11 +49,31 @@
 * `prio`: maximum priority value (very important messages have a *low* prio number!)
 * `rect`: array of objects, geographical bounding box filter
 * `onlyHimId`: boolean. Additional information about the the disruption as human-readable text is added if this parameter is set `false`.
+
 * `himFltrL`: array of objects
 ** `type`: string, key you want to filter (left hand side of the comparison). Known keys are `HIMCAT` and `PROD`. 
 ** `mode`: string, operator. Known value is `INC` (seems to mean "include") which adds an AND between the expressions and makes the expression itself being an equality filter (`key == value`).
 ** `value`: string, value you want to filter (right hand side of the comparison)
-** Filtering by `HIMCAT` means to filter for `res.common.himL[].cat` and can be used to drop all planned or unplanned disruptions. Valid values for HIMCAT are `0` for unplanned and `1` for planned disruptions. Filtering by `PROD` means to filter the results by the type of traffic which is affected. Valid values for `PROD` can be found below. If you filter for a `PROD` value which is not valid (e.g. `4`), the API will return large unplanned disruptions like storms or hacker attacks.
+
+Filtering by `HIMCAT` means to filter for `res.common.himL[].cat` and can be used to drop all planned or unplanned disruptions. Valid values for HIMCAT are `0` for unplanned and `1` for planned disruptions.
+
+Filtering by `PROD` means to filter the results by the type of traffic which is affected. `PROD` is a bitmask. Only the meaning of some bits is know currently (counted from small to large):
+
+* bit 1 and 2: long distance passenger trains
+* bit 3: message of the day (large box over the original web application) in case of large disruptions (storms, malware)
+* bit 4 and 5: local passenger trains
+* bit 6 and 7: unknow/ssem to be unused
+* bit 8 to 10: freight trains
+
+You don't have to (but you can) set all bits of category to true. If your filter is `0b10010` you will get results for local and long distance passenger trains. `0b01001`, `0b11011` and `0b11111` would return the same result.
+
+If you supplie multiple `PROD` filters, only last `PROD` filter will be applied.
+
+Best practice: If you use `0xFF` (255) as `PROD` filter, disruptions for all three modes of transport are included and you can keep the number of API requests low.
+
+```json
+[{"type":"HIMCAT","mode":"INC","value":"0"},{"type":"PROD","mode":"INC","value":1}]
+```
 
 
 ### Examples:
@@ -74,22 +94,7 @@ All unplanned disruptions in Germany:
     {
       "mode": "INC",
       "type": "HIMCAT",
-      "value": "1"
-    },
-    {
-      "mode": "INC",
-      "type": "PROD",
-      "value": 3
-    },
-    {
-      "mode": "INC",
-      "type": "PROD",
-      "value": 24
-    },
-    {
-      "mode": "INC",
-      "type": "PROD",
-      "value": 1920
+      "value": "1023"
     }
   ],
   "maxNum": 5000,

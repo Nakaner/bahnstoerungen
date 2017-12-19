@@ -381,7 +381,7 @@ function getDisruptionData() {
     queryData = queryData + '"rect":' + JSON.stringify(leafletBoundsToHacon(bounds).rect) + ',';
     queryData = queryData + '"dateB":"' + dateB + '","timeB":"' + timeB + '","dateE":"' + dateE + '","timeE":"' + timeE;
     queryData = queryData + '","onlyHimId":false,"himFltrL":[{"type":"HIMCAT","mode":"INC","value":"0"}';
-    queryData = queryData + ',{"type":"PROD","mode":"INC","value":3},{"type":"PROD","mode":"INC","value":24},{"type":"PROD","mode":"INC","value":1920}]}';
+    queryData = queryData + ',{"type":"PROD","mode":"INC","value":1023}]}';
     queryData = queryData + ',"cfg":{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}}],"ext":"DBNETZZUGRADAR.2"}';
     xhr.send(queryData);
 }
