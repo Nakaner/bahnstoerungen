@@ -234,8 +234,12 @@ function showMessageOfTheDay() {
     }
     //infoIcon.remove();
     //info.style.visibility = 'hidden';
-    messageOfTheDay.innerHTML = motDInnerHTML;
+    document.getElementById('motd_text').innerHTML = motDInnerHTML;
     document.getElementById('motd_overlay').style.display = 'block';
+    document.getElementById('motd_overlay').addEventListener('click', function(event){event.stopPropagation();});
+    document.getElementById('motd_overlay').addEventListener('mousedown', function(event){event.stopPropagation();});
+    document.getElementById('motd_overlay').addEventListener('mouseup', function(event){event.stopPropagation();});
+    document.getElementById('motd_overlay').addEventListener('dblclick', function(event){event.stopPropagation();});
 }
 
 

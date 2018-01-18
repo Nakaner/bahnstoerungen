@@ -150,6 +150,7 @@ article {
     margin-right: auto;
     padding: 10px;
     overflow-y: auto;
+    cursor: default;
 }
 
 #motd_image {
@@ -158,6 +159,7 @@ article {
 
 #close_icon {
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .float_left {
