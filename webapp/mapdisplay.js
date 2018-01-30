@@ -16,7 +16,7 @@ var motdInnerHTML = '';
 var markers = L.layerGroup([]);
 var oldMarkers = L.layerGroup([]);
 var regionMarkers = L.layerGroup([]);
-var ORMTilesLayer = L.tileLayer('http://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png', {
+var ORMTilesLayer = L.tileLayer('https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png', {
 //    maxZoom: 18,
     maxZoom: 18
 //    attribution: '<a href="http://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, Style: <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <a href="http://www.openrailwaymap.org/">OpenRailwayMap</a> and OpenStreetMap'
