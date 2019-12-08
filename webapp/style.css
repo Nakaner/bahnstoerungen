@@ -157,6 +157,10 @@ article {
     margin-right: 14px;
 }
 
+div.motd-block {
+    margin-bottom: 10px;
+}
+
 #close_icon {
     margin-left: 10px;
     cursor: pointer;

@@ -10,7 +10,8 @@ var startZoom = 8; // initial zoom level
 var popupOpen = false;
 // If the user has already seen the message of the day, this variable is set to false.
 var seenMotD = false;
-var motdInnerHTML = '';
+// List of messages of the day – there can be multiple but it is very very rare.
+var motDInnerHTML = [];
 
 // define base map and overlays
 var markers = L.layerGroup([]);
@@ -234,7 +235,7 @@ function showMessageOfTheDay() {
     }
     //infoIcon.remove();
     //info.style.visibility = 'hidden';
-    document.getElementById('motd_text').innerHTML = motDInnerHTML;
+    document.getElementById('motd_text').innerHTML = '<div class="motd-block">' + motDInnerHTML.join('</div><div class="motd-block">') + '</div>';
     document.getElementById('motd_overlay').style.display = 'block';
     document.getElementById('motd_overlay').addEventListener('click', function(event){event.stopPropagation();});
     document.getElementById('motd_overlay').addEventListener('mousedown', function(event){event.stopPropagation();});
@@ -293,7 +294,7 @@ function displayMarkers(responseFromServer) {
             message = message + '<br>' + findAndMakeLinks(element.text);
         }
         if (element.hasOwnProperty('prio') && element.prio == 1) {
-            motDInnerHTML = message;
+            motDInnerHTML.push(message);
             if (!seenMotD) {
                 showMessageOfTheDay();
             }
@@ -324,6 +325,7 @@ function displayMarkers(responseFromServer) {
 	    return;
 	}
     }
+    motDInnerHTML = [];
     allHimL.forEach(addMarkersToMap);
     showLoading(false);
 }
