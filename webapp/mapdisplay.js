@@ -132,7 +132,7 @@ layerControl.addTo(mymap);
 function updateAttribution() {
     attributionControl.remove();
     attributionControl = L.control.attribution();
-    attributionControl.addAttribution('Basiskarte © <a href="//www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Kartengrafik <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>')
+    attributionControl.addAttribution('Basiskarte © <a href="//www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (<a href="https://opendatacommons.org/licenses/odbl/index.html">ODbL</a>), Kartengrafik <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>')
     if (activeLayers.indexOf('OpenRailwayMap Infrastruktur')  != -1) {
         attributionControl.addAttribution('Streckennetz: CC-BY-SA <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> und <a href="http://www.openrailwaymap.org">OpenRailwayMap</a>');
     }
