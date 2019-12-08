@@ -174,7 +174,41 @@ function setPopupStateClosed() {
     popupOpen = false;
 }
 
-function addMarker(markerLat, markerLon, message, spatialContext, endOfEvent, localEvent) {
+function showTrainsForHandler(ev) {
+    var xhr = new XMLHttpRequest();
+    var url = "/bin/mgate.exe";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.responseType = "json";
+    var oldElement = document.querySelector('[data-himid="' + ev.target.dataset.himid + '"]');
+    var newElement = document.createElement('p');
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            var trainList = [];
+            console.log(xhr.response);
+            var trainDataList = xhr.response['svcResL'][0]['res']['common']['himL'][0]['affJnyL'];
+            trainDataList.forEach(function(e){
+                var parts = e['jid'].split('#');
+                trainList.push(parts[30] + ' (' + parts[26] + ' ' + parts[28] + ')');
+            });
+            newElement.innerHTML = 'Betroffene Züge:<br>' + trainList.join('<br>');
+            oldElement.parentNode.replaceChild(newElement, oldElement);
+        }
+    }
+    queryData = '{"ver":"1.15","lang":"deu","auth":{"type":"AID","aid":"hf7mcf9bv3nv8g5f"},"client":{"id":"DBZUGRADARNETZ","type":"WEB","name":"webapp","v":"0.1.0"},"formatted":false,"svcReqL":[{"meth":"HimDetails","req":{"input":"' + ev.target.dataset.himid + '","getTrains":true}';
+    queryData = queryData + ',"cfg":{"cfgGrpL":[],"cfgHash":"i74dckao7PmBwS0rbk0p"}}],"ext":"DBNETZZUGRADAR.2"}';
+    xhr.send(queryData);
+}
+
+function registerShowTrains() {
+    var popups = document.getElementsByClassName('show-trains');
+    for (var i = 0; i < popups.length; ++i) {
+        popups[i].addEventListener('click', showTrainsForHandler);
+    };
+}
+
+
+function addMarker(markerLat, markerLon, message, spatialContext, endOfEvent, localEvent, himId) {
     var nowTime = currentBerlinTime();
     var historic = false;
     if (endOfEvent.isBefore(nowTime)) {
@@ -189,8 +223,8 @@ function addMarker(markerLat, markerLon, message, spatialContext, endOfEvent, lo
 	markerIcon = new RegionMessageIcon({iconUrl: 'images/region-grey.svg'});
     }
     var marker = L.marker([markerLat, markerLon], {icon: markerIcon});
-    marker.bindPopup(spatialContext + '<br>' + message);
-    marker.on('popupopen', setPopupStateOpen);
+    marker.bindPopup('<div class="disruption-popup-content">' + spatialContext + '<br>' + message + '</div><a class="show-trains" href="#" data-himid="' + himId + '">Betroffene Züge anzeigen</a>');
+    marker.on('popupopen', function(){setPopupStateOpen(); registerShowTrains();});
     marker.on('popupclose', setPopupStateClosed);
     if (localEvent && historic) {
         oldMarkers.addLayer(marker);
@@ -277,6 +311,7 @@ function displayMarkers(responseFromServer) {
             return;
         }
 	//TODO support different impacts for different traffic classes
+        var himId = element.hid || null;
         var message = '<b>' + element.impactL[0].impact + '<br>' + element.head + '</b>';
         // add time
         var lastDurationString = '';
@@ -316,7 +351,7 @@ function displayMarkers(responseFromServer) {
             if (typeof(toLoc) != undefined && fromLoc != toLoc) {
                 spatialContext = spatialContext + '–' + allLocations[toLoc].name;
             }
-            addMarker(markerLat, markerLon, message, spatialContext, lastEndOfEvent, true);
+            addMarker(markerLat, markerLon, message, spatialContext, lastEndOfEvent, true, himId);
         }
 	if (element.hasOwnProperty('edgeRefL')) {
             element.edgeRefL.forEach(addMarkerAndLine);
@@ -324,7 +359,7 @@ function displayMarkers(responseFromServer) {
             markerLat = allRegions[element.regionRefL[0]].icoCrd.y / haconFactor;
             markerLon = allRegions[element.regionRefL[0]].icoCrd.x / haconFactor;
             var spatialContext = allRegions[element.regionRefL[0]].name;
-            addMarker(markerLat, markerLon, message, spatialContext, lastEndOfEvent, false);
+            addMarker(markerLat, markerLon, message, spatialContext, lastEndOfEvent, false, himId);
 	} else {
 	    return;
 	}
