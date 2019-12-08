@@ -144,6 +144,12 @@ function updateAttribution() {
 
 updateAttribution();
 
+
+
+function escapeHTML(input) {
+   return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+
 // functions executed if the layer is changed or the map moved
 function updateUrl(newBaseLayerName, overlayIDs) {
     if (newBaseLayerName == '') {
@@ -189,7 +195,7 @@ function showTrainsForHandler(ev) {
             var trainDataList = xhr.response['svcResL'][0]['res']['common']['himL'][0]['affJnyL'];
             trainDataList.forEach(function(e){
                 var parts = e['jid'].split('#');
-                trainList.push(parts[30] + ' (' + parts[26] + ' ' + parts[28] + ')');
+                trainList.push(escapeHTML(parts[30] + ' (' + parts[26] + ' ' + parts[28] + ')'));
             });
             newElement.innerHTML = 'Betroffene Züge:<br>' + trainList.join('<br>');
             oldElement.parentNode.replaceChild(newElement, oldElement);
@@ -223,7 +229,7 @@ function addMarker(markerLat, markerLon, message, spatialContext, endOfEvent, lo
 	markerIcon = new RegionMessageIcon({iconUrl: 'images/region-grey.svg'});
     }
     var marker = L.marker([markerLat, markerLon], {icon: markerIcon});
-    marker.bindPopup('<div class="disruption-popup-content">' + spatialContext + '<br>' + message + '</div><a class="show-trains" href="#" data-himid="' + himId + '">Betroffene Züge anzeigen</a>');
+    marker.bindPopup('<div class="disruption-popup-content">' + escapeHTML(spatialContext) + '<br>' + message + '</div><a class="show-trains" href="#" data-himid="' + himId + '">Betroffene Züge anzeigen</a>');
     marker.on('popupopen', function(){setPopupStateOpen(); registerShowTrains();});
     marker.on('popupclose', setPopupStateClosed);
     if (localEvent && historic) {
@@ -312,7 +318,7 @@ function displayMarkers(responseFromServer) {
         }
 	//TODO support different impacts for different traffic classes
         var himId = element.hid || null;
-        var message = '<b>' + element.impactL[0].impact + '<br>' + element.head + '</b>';
+        var message = '<b>' + escapeHTML(element.impactL[0].impact) + '<br>' + escapeHTML(element.head) + '</b>';
         // add time
         var lastDurationString = '';
         var lastEndOfEvent;
