@@ -220,6 +220,8 @@ L.Control.InfoIcon = L.Control.extend({
 
 function closeMessageOfTheDay() {
     document.getElementById('motd_overlay').style.display = 'none';
+    document.getElementById('mapid').style.display = 'block';
+    document.body.style.position = 'fixed';
     seenMotD = true;
     L.control.InfoIcon = function(opts) {
         return new L.Control.InfoIcon(opts);
@@ -241,6 +243,8 @@ function showMessageOfTheDay() {
     document.getElementById('motd_overlay').addEventListener('mousedown', function(event){event.stopPropagation();});
     document.getElementById('motd_overlay').addEventListener('mouseup', function(event){event.stopPropagation();});
     document.getElementById('motd_overlay').addEventListener('dblclick', function(event){event.stopPropagation();});
+    document.getElementById('mapid').style.display = 'none';
+    document.body.style.position = 'static';
 }
 
 
