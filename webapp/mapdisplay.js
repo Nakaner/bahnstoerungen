@@ -316,9 +316,14 @@ function displayMarkers(responseFromServer) {
             // only unplanned disruptions
             return;
         }
+        if (!element.hasOwnProperty('head') && !element.hasOwnProperty('text')) {
+            // A message without a category for a reason and a detailed description is strange.
+            // This happens if a large disruption is over. Skip it.
+            return;
+        }
 	//TODO support different impacts for different traffic classes
         var himId = element.hid || null;
-        var message = '<b>' + escapeHTML(element.impactL[0].impact) + '<br>' + escapeHTML(element.head) + '</b>';
+        var message = '<b>' + escapeHTML(element.impactL[0].impact || '') + '<br>' + escapeHTML(element.head || '') + '</b>';
         // add time
         var lastDurationString = '';
         var lastEndOfEvent;
