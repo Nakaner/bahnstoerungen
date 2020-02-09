@@ -177,6 +177,11 @@ div.motd-block {
     }
 }
 
+div.non-db-note {
+    background-color: #ddd;
+    padding: 10px 10px 10px 10px;
+}
+
 #info {
     /*position: fixed;
     visibility: hidden;
