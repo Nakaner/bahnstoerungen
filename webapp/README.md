@@ -7,20 +7,14 @@ of most modern browsers, you have to do some HTTP header fiddling. There are
 two options:
 
 * You set up a virtual host with Apache which is a reverse proxy and adds
-the `Access-Allow-Origin: *` header. You have to enable the modules *proxy*, *proxy_http* and *headers*.
+the `Access-Allow-Origin: *` header. You have to enable the modules *proxy*, *proxy_http*, *headers* and *ssl*.
+Forwarding to the DB server requires the usage of HTTPS because their server is HTTPS-only (redirects unencrypted HTTP requests to HTTPS).
 
 ```Apache
     Header set Access-Control-Allow-Origin "*"
-    ProxyPass /bin/ http://db-livemaps.hafas.de/bin/
-    ProxyPassReverse /bin/ http://db-livemaps.hafas.de/bin/
-```
-
-* You set up a virtual host with Apache which is a reverse proxy and is
-accessible under the same hostname as the demo. You have to enable the modules *proxy* and *proxy_http*.
-
-```Apache
-    ProxyPass /bin/ http://db-livemaps.hafas.de/bin/
-    ProxyPassReverse /bin/ http://db-livemaps.hafas.de/bin/
+    SSLProxyEngine on
+    ProxyPass /bin/ https://db-livemaps.hafas.de/bin/
+    ProxyPassReverse /bin/ https://db-livemaps.hafas.de/bin/
 ```
 
 
