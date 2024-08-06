@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="leaflet.css" />
-    <script type="text/javascript" src="moment.js"></script>
-    <script type="text/javascript" src="moment-timezone-with-data-2012-2022.js"></script>
-    <script src="leaflet.js"></script>
     <style>
         body {
             position: fixed;
@@ -32,17 +29,9 @@
             </ul>
         </nav>
     </header>
-    <div id="motd_overlay">
-        <img src="images/info.svg" id="motd_image" class="float_left" width="56" height="56">
-        <img src="images/close.svg" id="close_icon" class="float_right" width="36" height="36">
-        <span id="motd_text"></span>
-        <div class="non-db-note">Redaktioneller Hinweis: Bei unwetterbedingten Großstörungen werden nicht alle Störungen auf strecken.info und somit auch auf dieser Karte dargestellt. Bitte in solchen Fällen auch die <a target="_blank" href="https://nlz-live.dbnetze.com/">Großstörungskarte der Netzleitzentrale</a> zu Rate ziehen.</div>
-        <p>Geodaten: <a href="http://strecken.info/">DB Netz</a>, <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende (<a href="https://opendatacommons.org/licenses/odbl/index.html">ODbL</a>)</p>
-    </div>
-<div id="mapid">
-    <img id="loading" src="images/loading.svg" width="48" height="48">
-</div>
+    <article>
+        <p>Die Schnittstelle der DB InfraGO AG, die von dieser inoffiziellen Störungskarte genutzt wurde, wurde Mitte 2024 abgeschaltet und durch eine neue Schnittstelle und Kartenanwendung ersetzt. Die neue offizielle Anwendung der DB InfraGO AG ist unter <a href="https://strecken-info.de/">strecken-info.de</a> zu finden. Anders als die Vorgängeranwendung ist diese auch für Mobilgeräte geeignet, weshalb auf eine Anpassung der inoffiziellen Bahnstörungskarte an die neue Schnittstelle verzichtet wurde.</p>
+    </article>
 <script type="text/javascript" src="hamburger.js"></script>
-<script type="text/javascript" src="mapdisplay.js"></script>
 </body>
 </html>

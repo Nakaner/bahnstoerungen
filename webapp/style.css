@@ -137,6 +137,7 @@ nav ul li a:hover {
 
 article {
     margin: 10px;
+    max-width: 800px;
 }
 
 #motd_overlay {
