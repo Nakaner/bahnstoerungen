@@ -1,3 +1,7 @@
+**RETIRED**
+
+**This project is retired because the API by DB InfraGO AG was shut down mid 2024 and replaced by a new API.**
+
 This repository contains the attempts to build a web site which displays
 disruptions in public transport on a map. The repository consists of two parts:
 
